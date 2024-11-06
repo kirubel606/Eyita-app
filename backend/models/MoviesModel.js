@@ -6,7 +6,7 @@ const movieSchema = new mongoose.Schema({
   poster: { type: String },
   category: { type: String },
   link: { type: String },
-  releaseDate: { type: Date },
+  releaseYear: { type: String },
   duration: { type: String },
   rating: { type: Number }
 }, { timestamps: true });
