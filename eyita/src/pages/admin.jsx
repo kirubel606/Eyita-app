@@ -58,7 +58,7 @@ const Admin = () => {
 
   return (
     <>
-      <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+      <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-[#332110] dark:border-[#332110]">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
@@ -96,7 +96,7 @@ const Admin = () => {
 
             <button 
       onClick={handleLogout} 
-      className="flex items-center text-gray-500 hover:text-red-600 transition-colors duration-200 font-medium text-sm px-3 py-2 rounded-md"
+      className="flex items-center text-white hover:text-red-600 transition-colors duration-200 font-medium text-sm px-3 py-2 rounded-md"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -122,10 +122,10 @@ const Admin = () => {
 
       <aside
         id="logo-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+        className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-[#332110] dark:border-[#332110]"
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+        <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-[#332110]">
           <ul className="space-y-2 font-medium">
 
             {/* Movies & Series Dropdown */}
@@ -196,7 +196,7 @@ const Admin = () => {
         </div>
       </aside>
 
-      <div className="p-4 sm:ml-64 bg-blue-200 h-[700px]">
+      <div className="p-4 sm:ml-64 bg-[#ffb16869] h-[700px] xl:h-[1000px]">
         <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
           {/* Main content will render based on the activeComponent state */}
           {renderContent()}

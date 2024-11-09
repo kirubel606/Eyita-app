@@ -59,7 +59,10 @@ function Moviemanagement() {
       }
     };
     fetchMovies();
+
   }, []);
+
+    
   const handleDelete = async (id) => {
     try {
       await api.delete(`/movies/${id}`);
