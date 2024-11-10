@@ -10,14 +10,15 @@ import { useNavigate } from 'react-router-dom';
 const Admin = () => {
 
   const { isAuthenticated } = useAuth();
+  const { userData } = useAuth();
   const navigate = useNavigate();
 
   // Redirect effect (example: navigate to a default component)
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!userData) {
       navigate('/login'); // Replace with your desired default path
     }
-  }, [isAuthenticated, navigate]);
+  }, [userData, navigate]);
   const { logout } = useAuth();
 
 
@@ -92,12 +93,13 @@ const Admin = () => {
 
 
 
-
-
             <button 
       onClick={handleLogout} 
       className="flex items-center text-white hover:text-red-600 transition-colors duration-200 font-medium text-sm px-3 py-2 rounded-md"
     >
+        <h1 className='text-white mr-5'>
+            {userData.email}
+        </h1>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

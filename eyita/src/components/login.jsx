@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/Authcontext'; // Adjust the import as necessary
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from "jwt-decode";
 import api from '../context/axiosInstance';
 
 const Login = () => {
@@ -18,10 +19,14 @@ const Login = () => {
       try {
         const response = await api.post('/users/login', { username, password });
         // Assuming the response contains user data
-        if (response.data) {
-          login(); // Call your login context method
-          navigate('/admin'); // Redirect to the admin page after login
+        if (response.data.token) {
+        // Handle successful login
+        localStorage.setItem('token', response.data.token); // Save token in localStorage
+        login(); // Call your login context method
+        navigate('/admin'); // Redirect to the admin page after login
+        setMessage('Login successful');
         }
+        
       } catch (err) {
         // Handle errors (e.g., invalid credentials)
         if (err.response && err.response.status === 400) {
