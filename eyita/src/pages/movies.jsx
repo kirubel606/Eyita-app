@@ -111,7 +111,10 @@ const Movies = () => {
                   </div>
                 ) : (
               // Promo Card
-              <Link to={item.data.link}>
+              <a 
+                href={item.data.link} 
+                target="_blank" 
+                rel="noopener noreferrer">
               <div className="w-80 h-3/5 rounded-lg overflow-hidden shadow-lg bg-gradient-to-br p-4 flex flex-col justify-between transform transition duration-300 hover:scale-105 hover:shadow-xl m-2">
                 <h3 className="font-extrabold text-2xl mb-3">{item.data.title || "Promo Title"}</h3>
                 <div className="film-poster mb-3">
@@ -122,7 +125,7 @@ const Movies = () => {
                   Learn More
                 </button>
               </div>
-              </Link>
+              </a>
                 )}
               </React.Fragment>
             ))}

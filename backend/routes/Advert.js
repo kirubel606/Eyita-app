@@ -21,9 +21,9 @@ router.put('/', async (req, res) => {
     let advert = await Advert.findOne();
     if (advert) {
       // Update advert
-      advert.adSlot1 = req.body.adSlot1 || advert.adSlot1;
-      advert.adSlot2 = req.body.adSlot2 || advert.adSlot2;
-      advert.adSlot3 = req.body.adSlot3 || advert.adSlot3;
+      advert.link1 = req.body.link1 || advert.link1;
+      advert.link2 = req.body.link2 || advert.link2;
+      advert.link3 = req.body.link3 || advert.link3;
       advert.adClient = req.body.adClient || advert.adClient;
 
       await advert.save();

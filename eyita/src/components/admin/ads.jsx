@@ -3,9 +3,9 @@ import api from '../../context/axiosInstance';
 
 function Ads() {
   const [advert, setAdvert] = useState({
-    adSlot1: '',
-    adSlot2: '',
-    adSlot3: '',
+    link1: '',
+    link2: '',
+    link3: '',
     adClient: ''
   });
   const [showModal, setShowModal] = useState(false);
@@ -37,7 +37,7 @@ function Ads() {
     e.preventDefault();
     try {
       // Send PUT request to the backend
-      const response = await api.put('/4', advert);
+      const response = await api.put('/adverts', advert);
       alert(response.status === 200 ? "Ad details updated successfully." : "Ad created successfully.");
       setShowModal(false); // Close the modal after submission
     } catch (error) {
@@ -54,17 +54,17 @@ function Ads() {
       <table className="min-w-full bg-white shadow-md rounded-lg mb-4">
         <thead>
           <tr>
-            <th className="py-2 px-4">Ad Slot 1</th>
-            <th className="py-2 px-4">Ad Slot 2</th>
-            <th className="py-2 px-4">Ad Slot 3</th>
+            <th className="py-2 px-4">Link 1</th>
+            <th className="py-2 px-4">Link 2</th>
+            <th className="py-2 px-4">Link 3</th>
             <th className="py-2 px-4">Ad Client</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td className="py-2 px-4 border">{advert.adSlot1}</td>
-            <td className="py-2 px-4 border">{advert.adSlot2}</td>
-            <td className="py-2 px-4 border">{advert.adSlot3}</td>
+            <td className="py-2 px-4 border">{advert.link1}</td>
+            <td className="py-2 px-4 border">{advert.link2}</td>
+            <td className="py-2 px-4 border">{advert.link3}</td>
             <td className="py-2 px-4 border">{advert.adClient}</td>
           </tr>
         </tbody>
@@ -85,8 +85,8 @@ function Ads() {
                 <label className="block text-gray-700 mb-2">Ad Slot 1</label>
                 <input
                   type="text"
-                  name="adSlot1"
-                  value={advert.adSlot1}
+                  name="link1"
+                  value={advert.link1}
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded px-3 py-2"
                 />
@@ -95,8 +95,8 @@ function Ads() {
                 <label className="block text-gray-700 mb-2">Ad Slot 2</label>
                 <input
                   type="text"
-                  name="adSlot2"
-                  value={advert.adSlot2}
+                  name="link2"
+                  value={advert.link2}
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded px-3 py-2"
                 />
@@ -105,8 +105,8 @@ function Ads() {
                 <label className="block text-gray-700 mb-2">Ad Slot 3</label>
                 <input
                   type="text"
-                  name="adSlot3"
-                  value={advert.adSlot3}
+                  name="link3"
+                  value={advert.link3}
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded px-3 py-2"
                 />

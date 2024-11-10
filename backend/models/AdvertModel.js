@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const advertSchema = new mongoose.Schema({
-  adSlot1: { type: String, required: true },
-  adSlot2: { type: String, required: true },
-  adSlot3: { type: String, required: true },
+  link1: { type: String, required: true },
+  link2: { type: String, required: true },
+  link3: { type: String, required: true },
   adClient: { type: String, required: true },
 });
 
