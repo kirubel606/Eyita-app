@@ -48,7 +48,10 @@ function Home() {
                   <p className='text-white text-3xl text-center'>እንኳን ደህና መጡ!</p>
                   <p className='text-white text-2xl text-center'>የሚፈልጉትን ሁሉ እዚሁ እኛ ጋር ያገኛሉ ! </p>
                   <div className="flex justify-center items-center h-1/2">
+                  <Link to={`/movies`} className="text-black no-underline hover:underline">
+
                     <button className='sm:text-4xl md:text-4xl xl:text-5xl text-white py-5 px-5 bg-[#FDA758] text-7xl rounded-lg bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_80%,transparent_55%,transparent_100%)] relative max-w-md overflow-hidden bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat shadow-[#4d3a28] shadow-xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]'>ይጀምሩ</button>
+                  </Link>
                   </div>
                 </div>
                 <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-10 gap-2 -rotate-6 absolute z-0 top-0 w-[100%] mx-auto " >

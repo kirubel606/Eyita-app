@@ -11,6 +11,12 @@ const Vidplay = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [advert, setAdvert] = useState({
+    link1: '',
+    link2: '',
+    link3: '',
+    adClient: ''
+  });
 
   useEffect(() => {
     if (id) {
@@ -25,6 +31,21 @@ const Vidplay = () => {
         });
     }
   }, [id]);
+
+  useEffect(() => {
+    const fetchAdvert = async () => {
+      try {
+        const response = await api.get('/adverts');
+        // If the response contains an advert, update the state
+        if (response.data) {
+          setAdvert(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching advert:", error);
+      }
+    };
+    fetchAdvert();
+  }, []);
 
   const extractYouTubeVideoId = (url) => {
     let videoId = '';

@@ -15,10 +15,10 @@ const Admin = () => {
 
   // Redirect effect (example: navigate to a default component)
   useEffect(() => {
-    if (!userData) {
+    if (!isAuthenticated) {
       navigate('/login'); // Replace with your desired default path
     }
-  }, [userData, navigate]);
+  }, [isAuthenticated, navigate]);
   const { logout } = useAuth();
 
 
