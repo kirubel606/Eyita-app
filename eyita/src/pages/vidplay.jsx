@@ -17,6 +17,8 @@ const Vidplay = () => {
     link3: '',
     adClient: ''
   });
+  console.log("Here are adverts",advert.link1);
+  const [redirectCount, setRedirectCount] = useState(0); // Track the number of redirects
 
   useEffect(() => {
     if (id) {
@@ -73,7 +75,12 @@ const Vidplay = () => {
   if (error) {
     return <div>{error}</div>;
   }
-
+  const handleOverlayClick = () => {
+    if (redirectCount < 2) {
+      setRedirectCount(prev => prev + 1);
+      window.open(advert.link1, '_blank'); 
+    }
+  };
   return (
     <div className=''>
       <Navbare />
@@ -90,19 +97,25 @@ const Vidplay = () => {
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           ></iframe>
-
-          <div className='flex shadow-xl p-5 rounded-lg'>
+            {advert.link1 && redirectCount < 2 && (
+              <div
+                className="absolute top-0 left-0 w-full h-full bg-transparent flex items-center justify-center text-white text-xl cursor-pointer"
+                onClick={handleOverlayClick}
+              >
+              </div>
+            )}
+          <div className='flex shadow-xl m-5 rounded-lg'>
             {movie.poster && (
               <img
                 src={movie.poster}
                 alt={movie.title}
-                className='w-40 h-auto rounded-lg mr-5'
+                className='rounded-lg h-1/2 mr-5'
               />
             )}
             <div className='flex flex-col justify-start'>
               <h1 className='font-extrabold text-2xl mb-2'>{movie.title}</h1>
-              <p className='mb-1'>Release Year: {movie.releaseYear}</p>
-              <p className='mb-1'>Category: {movie.category}</p>
+              <p className='mb-1 font-bold'>Release Year: {movie.releaseYear}</p>
+              <p className='mb-1 font-bold'>Category: {movie.category}</p>
               <p className='mb-1'>{movie.description}</p>
             </div>
           </div>
